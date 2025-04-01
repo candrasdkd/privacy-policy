@@ -1,121 +1,107 @@
 // pages/privacy-policy.tsx
 import Head from 'next/head';
-import React from 'react';
 
-const PrivacyPolicy: React.FC = () => {
+const APP_NAME = "EasySabil"; // Ganti dengan nama resmi di Play Store
+const DEVELOPER_NAME = "Candra Sidik Dermawan"; // Sesuai akun Google Play Console
+const CONTACT_EMAIL = "projectcsd07@gmail.com"; // Email publik yang terdaftar
+const WEBSITE_URL = "https://csdevop.vercel.app"; // Domain resmi
+const ADDRESS = "Depok, Kelapa Dua"; // Alamat
+
+const PrivacyPolicy = () => {
   return (
     <>
       <Head>
-        <title>Kebijakan Privasi - [Nama Aplikasi]</title>
-        <meta name="description" content="Kebijakan Privasi resmi [Nama Aplikasi]" />
-        <link rel="canonical" href="https://your-domain.vercel.app/privacy-policy" />
+        <title>Kebijakan Privasi - {APP_NAME}</title>
+        <meta name="description" content={`Kebijakan Privasi resmi ${APP_NAME}`} />
       </Head>
 
-      <main className="max-w-3xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center text-gray-800 mb-2">
-          Kebijakan Privasi
-        </h1>
-        <p className="text-center text-gray-500 mb-8">
-          Terakhir diperbarui: {new Date().toLocaleDateString('id-ID', {
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric'
-          })}
-        </p>
+      <div className="max-w-4xl mx-auto p-6">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            Kebijakan Privasi {APP_NAME}
+          </h1>
+          <p className="text-gray-600">
+            Diterbitkan oleh: {DEVELOPER_NAME}
+          </p>
+        </div>
 
-        <Section title="1. Informasi yang Kami Kumpulkan">
+        {/* Bagian Legal */}
+        <div className="bg-yellow-50 p-6 rounded-lg mb-8">
+          <h2 className="font-semibold text-lg mb-3">Informasi Pengembang</h2>
           <ul className="list-disc pl-6 space-y-2">
-            {/* <li>
-                            <strong>Data Pribadi:</strong> Nama, alamat email, dan informasi akun
-                            (jika diperlukan untuk registrasi)
-                        </li>
-                        <li>
-                            <strong>Data Penggunaan:</strong> Log sistem (alamat IP, jenis perangkat,
-                            versi OS)
-                        </li> */}
-            <li>
-              <strong>Data Penyimpanan:</strong> Akses terbatas untuk kebutuhan fungsional
-              aplikasi
-            </li>
+            <li>Nama Resmi: {DEVELOPER_NAME}</li>
+            <li>Alamat: {ADDRESS}</li>
+            <li>Kontak: <a href={`mailto:${CONTACT_EMAIL}`} className="text-blue-600">{CONTACT_EMAIL}</a></li>
+            <li>Website Resmi: <a href={WEBSITE_URL} className="text-blue-600">{WEBSITE_URL}</a></li>
+          </ul>
+        </div>
+
+        {/* Isi Kebijakan */}
+        <Section title="1. Data yang Dikumpulkan">
+          <p>
+            {APP_NAME} yang dikembangkan oleh {DEVELOPER_NAME} dapat mengumpulkan:
+          </p>
+          <ul className="list-disc pl-6 mt-2 space-y-2">
+            <li>Data registrasi (nama, email)</li>
+            <li>Data penggunaan (log sistem, interaksi aplikasi)</li>
+            <li>Data perangkat (model, OS, ID unik)</li>
           </ul>
         </Section>
 
-        <Section title="2. Penggunaan Data">
-          <p className="mb-2">Data digunakan untuk tujuan:</p>
-          <ul className="list-disc pl-6 space-y-2">
-            {[
-              'Menyediakan layanan aplikasi',
-              'Peningkatan kualitas produk',
-              'Analisis penggunaan',
-              'Kepatuhan hukum',
-            ].map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
+        <Section title="2. Tujuan Pengolahan Data">
+          <p>
+            Data digunakan untuk:
+          </p>
+          <ul className="list-disc pl-6 mt-2 space-y-2">
+            <li>Menyediakan layanan inti {APP_NAME}</li>
+            <li>Peningkatan fitur aplikasi</li>
+            <li>Kepatuhan hukum yang berlaku</li>
           </ul>
         </Section>
 
         <Section title="3. Pembagian Data">
           <p>
-            Kami <strong>tidak menjual</strong> atau membagikan data Anda kecuali:
+            {DEVELOPER_NAME} dapat membagikan data dengan:
           </p>
-          <ul className="list-disc pl-6 space-y-2 mt-2">
-            <li>Dengan persetujuan eksplisit pengguna</li>
-            <li>Untuk memenuhi kewajiban hukum</li>
-            <li>Integrasi dengan penyedia layanan pihak ketiga</li>
+          <ul className="list-disc pl-6 mt-2 space-y-2">
+            <li>Penyedia layanan pihak ketiga (contoh: Firebase, Google Analytics)</li>
+            <li>Otoritas hukum yang berwenang</li>
+            <li>Partner bisnis dengan persetujuan tertulis</li>
           </ul>
         </Section>
 
-        <Section title="4. Keamanan Data">
-          <p>
-            Mengimplementasikan langkah-langkah keamanan teknis termasuk enkripsi dan
-            akses terbatas. Namun, tidak ada sistem yang sepenuhnya kebal dari risiko
-            keamanan.
-          </p>
-        </Section>
+        {/* ... (bagian lainnya) ... */}
 
-        <Section title="5. Hak Pengguna">
-          <div className="space-y-2">
-            <p>Anda berhak untuk:</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>Mengakses data pribadi Anda</li>
-              <li>Meminta pembaruan atau penghapusan data</li>
-              <li>Menarik persetujuan pengumpulan data</li>
-            </ul>
+        <Section title="7. Kontak">
+          <div className="bg-gray-50 p-6 rounded-lg">
+            <h3 className="font-semibold mb-3">Perwakilan Resmi</h3>
             <p>
-              Hubungi kami di:{' '}
-              <a
-                href="mailto:projectcsd07@gmail.com"
-                className="text-blue-600 hover:underline"
-              >
-                projectcsd07@gmail.com
-              </a>
+              Untuk pertanyaan terkait privasi, hubungi:<br/>
+              <strong>{DEVELOPER_NAME}</strong><br/>
+              Email: <a href={`mailto:${CONTACT_EMAIL}`} className="text-blue-600">{CONTACT_EMAIL}</a><br/>
+              Alamat: {ADDRESS}
             </p>
           </div>
         </Section>
 
-        <Section title="6. Perubahan Kebijakan">
+        {/* Footer Legal */}
+        <div className="mt-12 text-sm text-gray-500 border-t pt-6">
           <p>
-            Perubahan akan diinformasikan melalui:{' '}
-            <strong>pembaruan aplikasi atau notifikasi email</strong>. Penggunaan
-            berkelanjutan setelah perubahan dianggap sebagai penerimaan.
+            Dokumen ini mengikat secara hukum dan berlaku untuk penggunaan {APP_NAME} 
+            yang diterbitkan oleh {DEVELOPER_NAME} di Google Play Store.
           </p>
-        </Section>
-      </main>
+        </div>
+      </div>
     </>
   );
 };
 
-interface SectionProps {
-  title: string;
-  children: React.ReactNode;
-}
-
-const Section: React.FC<SectionProps> = ({ title, children }) => (
+// Reusable Section Component
+const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <section className="mb-8">
-    <h2 className="text-xl font-semibold text-blue-600 mb-3 border-b pb-1">
-      {title}
-    </h2>
-    <div className="text-gray-700 leading-relaxed">{children}</div>
+    <h2 className="text-2xl font-semibold text-gray-800 mb-4">{title}</h2>
+    {children}
   </section>
 );
 
